@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f0f0f0; 
+    padding: 1rem;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;  
+}
+
+.location-box {
+    margin-top: 20px;
+}
+
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+.temp, .desc, .City, .precp {
+    font-weight: bold;
+    color: #007bff;  
+}
+
+.temp::after {
+    content: "°C";
+}
+
+.weather-card {
+    background-color: #fff;  
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.get-weather-btn, .get-current-location {
+    background-color: #007bff;  
+    color: #fff;  
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.get-weather-btn:hover, .get-current-location:hover {
+    background-color: #0056b3;  
+}
