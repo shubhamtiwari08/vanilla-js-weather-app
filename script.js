@@ -56,9 +56,9 @@ const getWeather = (type) =>{
     console.log("work")
     let url;
     if(type == 'type1'){
-        url = `http://api.weatherbit.io/v2.0/current?key=3911cab189e84738a55144653e94e98f&city=${city}`
+        url = `https://api.weatherbit.io/v2.0/current?key=3911cab189e84738a55144653e94e98f&city=${city}`
     }else{
-        url = `http://api.weatherbit.io/v2.0/current?key=3911cab189e84738a55144653e94e98f&lat=${lat}&lon=${long}`
+        url = `https://api.weatherbit.io/v2.0/current?key=3911cab189e84738a55144653e94e98f&lat=${lat}&lon=${long}`
     }
     return fetch(url)
     .then(res => res.json())
