@@ -19,6 +19,11 @@ window.onload = function () {
     .then( (data) => data.json() )
     .then((data)=> auth_token = data.auth_token )
     .then(()=> getState())
+    .catch((error)=>{
+        console.log(error)
+        let errorElement = document.querySelector(".error")
+        errorElement.textContent = "some error occured while fetching states, please refresh"
+    })
 };
 
 function getCurrentLocation(){
@@ -63,6 +68,11 @@ const getWeather = (type) =>{
     return fetch(url)
     .then(res => res.json())
     .then(data => fillWeather(data))
+    .catch((error)=>{
+        console.log(error)
+        let errorElement = document.querySelector(".error")
+        errorElement.textContent = "some error occured while fetching weather details, please refresh"
+    })
 }
 
 
