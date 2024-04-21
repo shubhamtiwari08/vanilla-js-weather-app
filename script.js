@@ -4,6 +4,7 @@ var lat="";
 var long="";
 let getWeatherbtn = document.querySelector(".get-weather-btn")
 let getCurrentWeather = document.querySelector(".get-current-location")
+let errorElement = document.querySelector(".error")
 
 
 window.onload = function () {
@@ -18,10 +19,13 @@ window.onload = function () {
     req
     .then( (data) => data.json() )
     .then((data)=> auth_token = data.auth_token )
-    .then(()=> getState())
+    .then(()=>{ 
+       errorElement.textContent = ""
+        getState()
+    })
     .catch((error)=>{
         console.log(error)
-        let errorElement = document.querySelector(".error")
+       
         errorElement.textContent = "some error occured while fetching states, please refresh"
     })
 };
@@ -30,9 +34,11 @@ function getCurrentLocation(){
     navigator.geolocation.getCurrentPosition((position)=>{
          lat = position.coords.latitude
          long = position.coords.longitude
+
+         getWeather("type2")
     })
 
-    getWeather("type2")
+   
 }
 
 const getState = () =>{
@@ -67,7 +73,9 @@ const getWeather = (type) =>{
     }
     return fetch(url)
     .then(res => res.json())
-    .then(data => fillWeather(data))
+    .then(data => {
+        errorElement.textContent = ""
+        fillWeather(data)})
     .catch((error)=>{
         console.log(error)
         let errorElement = document.querySelector(".error")
